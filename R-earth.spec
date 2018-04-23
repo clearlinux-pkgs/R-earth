@@ -4,7 +4,7 @@
 #
 Name     : R-earth
 Version  : 4.6.2
-Release  : 6
+Release  : 7
 URL      : https://cran.r-project.org/src/contrib/earth_4.6.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/earth_4.6.2.tar.gz
 Summary  : Multivariate Adaptive Regression Splines
