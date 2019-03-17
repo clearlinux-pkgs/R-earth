@@ -4,16 +4,18 @@
 #
 Name     : R-earth
 Version  : 4.7.0
-Release  : 19
+Release  : 20
 URL      : https://cran.r-project.org/src/contrib/earth_4.7.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/earth_4.7.0.tar.gz
 Summary  : Multivariate Adaptive Regression Splines
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-earth-lib = %{version}-%{release}
-Requires: R-TeachingDemos
-Requires: R-plotmo
+Requires: R-gam
+Requires: R-leaps
 BuildRequires : R-TeachingDemos
+BuildRequires : R-gam
+BuildRequires : R-leaps
 BuildRequires : R-plotmo
 BuildRequires : buildreq-R
 
@@ -37,10 +39,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1546553037
+export SOURCE_DATE_EPOCH=1552832132
 
 %install
-export SOURCE_DATE_EPOCH=1546553037
+export SOURCE_DATE_EPOCH=1552832132
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -76,8 +78,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library earth|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  earth || :
 
 
 %files
@@ -110,7 +111,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/earth/help/paths.rds
 /usr/lib64/R/library/earth/html/00Index.html
 /usr/lib64/R/library/earth/html/R.css
-/usr/lib64/R/library/earth/libs/symbols.rds
 /usr/lib64/R/library/earth/slowtests/README.txt
 /usr/lib64/R/library/earth/slowtests/check.models.equal.R
 /usr/lib64/R/library/earth/slowtests/earth.times.R
@@ -164,6 +164,9 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/earth/slowtests/test.weights.R
 /usr/lib64/R/library/earth/slowtests/test.weights.Rout.save
 /usr/lib64/R/library/earth/slowtests/test.weights.bat
+/usr/lib64/R/library/earth/tests/README.txt
+/usr/lib64/R/library/earth/tests/test.earth.R
+/usr/lib64/R/library/earth/tests/test.earth.Rout.save
 
 %files lib
 %defattr(-,root,root,-)
