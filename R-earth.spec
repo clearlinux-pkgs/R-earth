@@ -4,18 +4,18 @@
 #
 Name     : R-earth
 Version  : 4.7.0
-Release  : 21
+Release  : 22
 URL      : https://cran.r-project.org/src/contrib/earth_4.7.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/earth_4.7.0.tar.gz
 Summary  : Multivariate Adaptive Regression Splines
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-earth-lib = %{version}-%{release}
-Requires: R-gam
-Requires: R-leaps
+Requires: R-mda
 BuildRequires : R-TeachingDemos
 BuildRequires : R-gam
 BuildRequires : R-leaps
+BuildRequires : R-mda
 BuildRequires : R-plotmo
 BuildRequires : buildreq-R
 
@@ -39,10 +39,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552832132
+export SOURCE_DATE_EPOCH=1552904009
 
 %install
-export SOURCE_DATE_EPOCH=1552832132
+export SOURCE_DATE_EPOCH=1552904009
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
