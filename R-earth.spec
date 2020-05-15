@@ -4,7 +4,7 @@
 #
 Name     : R-earth
 Version  : 5.1.2
-Release  : 34
+Release  : 35
 URL      : https://cran.r-project.org/src/contrib/earth_5.1.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/earth_5.1.2.tar.gz
 Summary  : Multivariate Adaptive Regression Splines
@@ -13,22 +13,14 @@ License  : GPL-3.0
 Requires: R-earth-lib = %{version}-%{release}
 Requires: R-Formula
 Requires: R-TeachingDemos
-Requires: R-gam
-Requires: R-leaps
-Requires: R-mda
 Requires: R-plotmo
 BuildRequires : R-Formula
 BuildRequires : R-TeachingDemos
-BuildRequires : R-gam
-BuildRequires : R-leaps
-BuildRequires : R-mda
 BuildRequires : R-plotmo
 BuildRequires : buildreq-R
 
 %description
--------------------------------
-The tests in this directory must be run manually before submitting a
-new version of this package to CRAN.
+papers "Fast MARS" and "Multivariate Adaptive Regression
 
 %package lib
 Summary: lib components for the R-earth package.
@@ -40,21 +32,22 @@ lib components for the R-earth package.
 
 %prep
 %setup -q -c -n earth
+cd %{_builddir}/earth
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573366532
+export SOURCE_DATE_EPOCH=1589577161
 
 %install
-export SOURCE_DATE_EPOCH=1573366532
+export SOURCE_DATE_EPOCH=1589577161
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
