@@ -4,7 +4,7 @@
 #
 Name     : R-earth
 Version  : 5.3.2
-Release  : 57
+Release  : 58
 URL      : https://cran.r-project.org/src/contrib/earth_5.3.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/earth_5.3.2.tar.gz
 Summary  : Multivariate Adaptive Regression Splines
@@ -18,9 +18,6 @@ BuildRequires : R-Formula
 BuildRequires : R-TeachingDemos
 BuildRequires : R-plotmo
 BuildRequires : buildreq-R
-# Suppress stripping binaries
-%define __strip /bin/true
-%define debug_package %{nil}
 
 %description
 papers "Fast MARS" and "Multivariate Adaptive Regression
@@ -42,10 +39,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1674838053
+export SOURCE_DATE_EPOCH=1678816811
 
 %install
-export SOURCE_DATE_EPOCH=1674838053
+export SOURCE_DATE_EPOCH=1678816811
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
