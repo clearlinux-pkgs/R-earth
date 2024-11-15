@@ -1,5 +1,5 @@
 PKG_NAME := R-earth
-URL = https://cran.r-project.org/src/contrib/earth_5.3.3.tar.gz
+URL = https://ftp.osuosl.org/pub/cran/src/contrib/earth_5.3.4.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
